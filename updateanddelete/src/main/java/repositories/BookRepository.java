@@ -1,0 +1,17 @@
+package repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import models.Book;
+
+@Repository
+public interface BookRepository extends CrudRepository<Book, Long>{
+
+	List<Book>findAll();
+	List<Book> findByDescriptionContaining(String search);
+	Long countBytitleContaining(String search);
+	Long deleteByTitleStartingWith(String search);
+}
